@@ -1,3 +1,9 @@
 .p-channel_sidebar__list {
   visibility: hidden;
 }
+
+.show-hide-button {
+  width: 196px;
+  margin: 4px 0 8px 12px;
+  display: inline-flex;
+}

@@ -7,7 +7,8 @@
   "content_scripts": [
     {
       "matches": ["https://app.slack.com/client*"],
-      "css": ["styles/inject.css"]
+      "css": ["styles/inject.css"],
+      "js": ["scripts/inject.js"]
     }
   ]
 }
