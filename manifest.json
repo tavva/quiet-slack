@@ -4,7 +4,10 @@
 	"description": "Use Slack without knowing if there are any new messages",
 	"manifest_version": 2,
 
-	"background": {
-		"scripts": ["scripts/background.js"]
-	}
+	"content_scripts": [
+		{
+			"matches": ["https://app.slack.com/client*"],
+			"css": ["styles/inject.css"]
+		}
+	]
 }
