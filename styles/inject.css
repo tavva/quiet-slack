@@ -3,7 +3,5 @@
 }
 
 .show-hide-button {
-  width: 196px;
-  margin: 4px 0 8px 12px;
-  display: inline-flex;
+  margin: 4px 0 8px 12px !important;
 }

@@ -3,6 +3,7 @@ window.addEventListener ("load", main, false);
 var show_hide_button = document.createElement('button');
 show_hide_button.appendChild(document.createTextNode('Show channels'));
 show_hide_button.classList.add('show-hide-button');
+show_hide_button.classList.add('c-button-unstyled');
 
 var hidden = true;
 
