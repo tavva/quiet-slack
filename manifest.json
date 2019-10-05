@@ -1,13 +1,13 @@
 {
-	"name": "Quiet Slack",
-	"version": "1.0",
-	"description": "Use Slack without knowing if there are any new messages",
-	"manifest_version": 2,
+  "name": "Quiet Slack",
+  "version": "1.0",
+  "description": "Use Slack without knowing if there are any new messages",
+  "manifest_version": 2,
 
-	"content_scripts": [
-		{
-			"matches": ["https://app.slack.com/client*"],
-			"css": ["styles/inject.css"]
-		}
-	]
+  "content_scripts": [
+    {
+      "matches": ["https://app.slack.com/client*"],
+      "css": ["styles/inject.css"]
+    }
+  ]
 }
