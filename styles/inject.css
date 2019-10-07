@@ -5,3 +5,7 @@
 .show-hide-button {
   margin: 4px 0 8px 12px !important;
 }
+
+div.c-search_autocomplete li[role="presentation"]:first-of-type { display: none; }
+div.c-search_autocomplete li[role="presentation"]:first-of-type ~ .c-search_autocomplete__suggestion_item { display: none; }
+div.c-search_autocomplete li[role="presentation"]:not(:first-of-type) ~ .c-search_autocomplete__suggestion_item { display: flex; }
