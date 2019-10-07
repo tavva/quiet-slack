@@ -17,6 +17,7 @@ selectors = {
   'Unread search results header': function(value) {return `div.c-search_autocomplete li[role="presentation"]:first-of-type { display: ${value}; }`},
   'Unread search results': function(value) {return `div.c-search_autocomplete li[role="presentation"]:first-of-type ~ .c-search_autocomplete__suggestion_item { display: ${value}; }`},
   'Other search results': function(value) {return `div.c-search_autocomplete li[role="presentation"]:not(:first-of-type) ~ .c-search_autocomplete__suggestion_item { display: ${value}; }`},
+  'Search unread count': function(value) {return `span.c-search_autocomplete__unread_count { visibility: ${value}; }`},
 }
 
 function main (evt) {
@@ -32,6 +33,7 @@ function main (evt) {
     inject_css(selectors['Unread search results header'](target_display));
     inject_css(selectors['Unread search results'](target_display));
     inject_css(selectors['Other search results']('flex'));
+    inject_css(selectors['Search unread count'](target_visibility));
 
     hidden = !hidden;
   });
