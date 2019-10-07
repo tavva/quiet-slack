@@ -1,6 +1,6 @@
 {
   "name": "Quiet Slack",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Use Slack without knowing if there are any new messages",
   "manifest_version": 2,
 
