@@ -46,6 +46,22 @@ function activate(hide) {
   hidden = hide;
 }
 
+function detect_inactivity() {
+  var timeout;
+
+  document.onmousemove = resetTimer;
+  document.onkeypress = resetTimer;
+
+  function now_inactive() {
+    activate(true);
+  }
+
+  function resetTimer() {
+    clearTimeout(timeout);
+    timeout = setTimeout(now_inactive, 30000)
+  }
+};
+
 function main (evt) {
   var sidebar_node = document.getElementsByClassName('p-channel_sidebar__list')[0];
 
@@ -55,5 +71,5 @@ function main (evt) {
 
   sidebar_node.parentNode.insertBefore(show_hide_button, sidebar_node);
 
-  setInterval(function() { activate(true); }, 60000);
+  detect_inactivity();
 }
