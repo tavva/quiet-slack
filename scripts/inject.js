@@ -20,24 +20,25 @@ selectors = {
   'Search unread count': function(value) {return `span.c-search_autocomplete__unread_count { visibility: ${value}; }`},
 }
 
+function activate(hide) {
+  var sidebar_node = document.getElementsByClassName('p-channel_sidebar__list')[0];
+  target_visibility = hide ? 'hidden' : 'visible';
+  target_display = hide ? 'none': 'flex';
+
+  sidebar_node.style.visibility = target_visibility;
+  show_hide_button.innerHTML = hide ? 'Show channels' : 'Hide channels';
+
+  inject_css(selectors['Unread search results header'](target_display));
+  inject_css(selectors['Unread search results'](target_display));
+  inject_css(selectors['Other search results']('flex'));
+  inject_css(selectors['Search unread count'](target_visibility));
+}
+
 function main (evt) {
   var sidebar_node = document.getElementsByClassName('p-channel_sidebar__list')[0];
 
   show_hide_button.addEventListener('click', function (evt) {
-    // The CSS isn't being honoured, so set this on page load.
-    inject_css(selectors['Unread search results header']('none'));
-
-    target_visibility = hidden ? 'visible' : 'hidden';
-    target_display = hidden ? 'flex': 'none';
-
-    sidebar_node.style.visibility = target_visibility;
-    show_hide_button.innerHTML = hidden ? 'Hide channels' : 'Show channels';
-
-    inject_css(selectors['Unread search results header'](target_display));
-    inject_css(selectors['Unread search results'](target_display));
-    inject_css(selectors['Other search results']('flex'));
-    inject_css(selectors['Search unread count'](target_visibility));
-
+    activate(!hidden);
     hidden = !hidden;
   });
 
