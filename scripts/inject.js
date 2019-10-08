@@ -23,10 +23,10 @@ function inject_css(str) {
 }
 
 selectors = {
+  'Search unread count': function(value) {return `span.c-search_autocomplete__unread_count { visibility: ${value}; }`},
   'Unread search results header': function(value) {return `div.c-search_autocomplete li[role="presentation"]:first-of-type { display: ${value}; }`},
   'Unread search results': function(value) {return `div.c-search_autocomplete li[role="presentation"]:first-of-type ~ .c-search_autocomplete__suggestion_item { display: ${value}; }`},
   'Other search results': function(value) {return `div.c-search_autocomplete li[role="presentation"]:not(:first-of-type) ~ .c-search_autocomplete__suggestion_item { display: ${value}; }`},
-  'Search unread count': function(value) {return `span.c-search_autocomplete__unread_count { visibility: ${value}; }`},
 }
 
 function activate(hide) {
