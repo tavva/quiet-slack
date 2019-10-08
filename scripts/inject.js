@@ -42,6 +42,8 @@ function activate(hide) {
   inject_css(selectors['Unread search results'](target_display));
   inject_css(selectors['Other search results']('flex'));
   inject_css(selectors['Search unread count'](target_visibility));
+
+  hidden = hide;
 }
 
 function main (evt) {
@@ -49,7 +51,6 @@ function main (evt) {
 
   show_hide_button.addEventListener('click', function (evt) {
     activate(!hidden);
-    hidden = !hidden;
   });
 
   sidebar_node.parentNode.insertBefore(show_hide_button, sidebar_node);
