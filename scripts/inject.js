@@ -7,8 +7,17 @@ show_hide_button.classList.add('c-button-unstyled');
 
 var hidden = true;
 
+function clear_injected_css() {
+  var existing_node = document.getElementById('quiet-slack-injected');
+
+  if (existing_node) {
+    existing_node.parentNode.removeChild(existing_node);
+  }
+}
+
 function inject_css(str) {
   var node = document.createElement('style');
+  node.setAttribute('id', 'quiet-slack-injected');
   node.innerHTML = str;
   document.body.appendChild(node);
 }
@@ -28,6 +37,7 @@ function activate(hide) {
   sidebar_node.style.visibility = target_visibility;
   show_hide_button.innerHTML = hide ? 'Show channels' : 'Hide channels';
 
+  clear_injected_css();
   inject_css(selectors['Unread search results header'](target_display));
   inject_css(selectors['Unread search results'](target_display));
   inject_css(selectors['Other search results']('flex'));
@@ -43,4 +53,6 @@ function main (evt) {
   });
 
   sidebar_node.parentNode.insertBefore(show_hide_button, sidebar_node);
+
+  setInterval(function() { activate(true); }, 60000);
 }
