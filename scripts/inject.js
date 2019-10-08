@@ -24,6 +24,9 @@ function main (evt) {
   var sidebar_node = document.getElementsByClassName('p-channel_sidebar__list')[0];
 
   show_hide_button.addEventListener('click', function (evt) {
+    // The CSS isn't being honoured, so set this on page load.
+    inject_css(selectors['Unread search results header']('none'));
+
     target_visibility = hidden ? 'visible' : 'hidden';
     target_display = hidden ? 'flex': 'none';
 
