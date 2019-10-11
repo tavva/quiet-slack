@@ -1,5 +1,3 @@
-window.addEventListener('load', main, false);
-
 var show_hide_button = document.createElement('button');
 show_hide_button.appendChild(document.createTextNode('Show channels'));
 show_hide_button.classList.add('show-hide-button');
@@ -62,7 +60,7 @@ function detect_inactivity() {
   }
 };
 
-function main (evt) {
+function main() {
   var sidebar_node = document.getElementsByClassName('p-channel_sidebar__list')[0];
 
   show_hide_button.addEventListener('click', function (evt) {
@@ -73,3 +71,10 @@ function main (evt) {
 
   detect_inactivity();
 }
+
+check_exists = setInterval(function() {
+  if (document.getElementsByClassName('p-channel_sidebar__list').length > 0) {
+    clearInterval(check_exists);
+    main();
+   }
+}, 100);
