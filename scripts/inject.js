@@ -1,4 +1,4 @@
-window.addEventListener ("load", main, false);
+window.addEventListener('load', main, false);
 
 var show_hide_button = document.createElement('button');
 show_hide_button.appendChild(document.createTextNode('Show channels'));
